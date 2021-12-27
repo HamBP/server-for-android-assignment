@@ -28,4 +28,12 @@ public class MemoRepositoryImpl implements MemoRepository {
     public Optional<Memo> findById(Long id) {
         return Optional.of(store.get(id));
     }
+
+    @Override
+    public Optional<Memo> deleteById(Long id) {
+        Optional<Memo> deletedMemo = Optional.of(store.get(id));
+        store.remove(id);
+
+        return deletedMemo;
+    }
 }

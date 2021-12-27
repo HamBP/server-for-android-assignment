@@ -37,4 +37,12 @@ public class MemoController {
         return result.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.badRequest().build());
     }
+
+    @DeleteMapping("memo/{id}")
+    @ResponseBody
+    public ResponseEntity<Memo> deleteMemo(@PathVariable Long id) {
+        Optional<Memo> result = memoService.deleteMemo(id);
+        return result.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.badRequest().build());
+    }
 }

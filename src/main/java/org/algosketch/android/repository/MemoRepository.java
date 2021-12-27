@@ -9,4 +9,5 @@ public interface MemoRepository {
     List<Memo> getMemoAll();
     Optional<Memo> insertMemo(String content);
     Optional<Memo> findById(Long id);
+    Optional<Memo> deleteById(Long id);
 }

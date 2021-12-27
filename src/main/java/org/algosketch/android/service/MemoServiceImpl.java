@@ -31,4 +31,9 @@ public class MemoServiceImpl implements MemoService {
     public Optional<Memo> findMemo(Long id) {
         return repository.findById(id);
     }
+
+    @Override
+    public Optional<Memo> deleteMemo(Long id) {
+        return repository.deleteById(id);
+    }
 }
