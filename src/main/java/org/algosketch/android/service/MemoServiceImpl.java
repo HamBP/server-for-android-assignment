@@ -36,4 +36,9 @@ public class MemoServiceImpl implements MemoService {
     public Optional<Memo> deleteMemo(Long id) {
         return repository.deleteById(id);
     }
+
+    @Override
+    public Optional<Memo> updateMemo(Long id, String status) {
+        return repository.updateStatusById(id, status);
+    }
 }

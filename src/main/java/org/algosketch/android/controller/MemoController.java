@@ -45,4 +45,12 @@ public class MemoController {
         return result.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.badRequest().build());
     }
+
+    @PatchMapping("memo/{id}")
+    @ResponseBody
+    public ResponseEntity<Memo> updateMemo(@PathVariable Long id, @RequestParam String status) {
+        Optional<Memo> result = memoService.updateMemo(id, status);
+        return result.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.badRequest().build());
+    }
 }

@@ -17,7 +17,7 @@ public class MemoRepositoryImpl implements MemoRepository {
 
     @Override
     public Optional<Memo> insertMemo(String content) {
-        Memo memo = new Memo(content, 0);
+        Memo memo = new Memo(content, Memo.BEFORE);
         memo.setId(++sequence);
         store.put(memo.getId(), memo);
 
@@ -39,5 +39,12 @@ public class MemoRepositoryImpl implements MemoRepository {
 
     public void clearAll() {
         store.clear();
+    }
+
+    @Override
+    public Optional<Memo> updateStatusById(Long id, String status) {
+        Optional<Memo> updatedMemo = Optional.of(store.get(id));
+        updatedMemo.ifPresent( memo -> memo.setStatus(status) );
+        return updatedMemo;
     }
 }

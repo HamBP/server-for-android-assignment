@@ -1,11 +1,15 @@
 package org.algosketch.android.model;
 
 public class Memo {
+    static public String BEFORE = "BEFORE";
+    static public String PROGRESS = "PROGRESS";
+    static public String DONE = "DONE";
+
     String content;
-    int status;
+    String status;
     Long id;
 
-    public Memo(String content, int status) {
+    public Memo(String content, String status) {
         this.content = content;
         this.status = status;
     }
@@ -18,11 +22,11 @@ public class Memo {
         this.content = content;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

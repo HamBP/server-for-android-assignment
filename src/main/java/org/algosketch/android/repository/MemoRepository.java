@@ -10,4 +10,5 @@ public interface MemoRepository {
     Optional<Memo> insertMemo(String content);
     Optional<Memo> findById(Long id);
     Optional<Memo> deleteById(Long id);
+    Optional<Memo> updateStatusById(Long id, String status);
 }

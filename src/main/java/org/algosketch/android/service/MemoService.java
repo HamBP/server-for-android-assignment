@@ -12,4 +12,5 @@ public interface MemoService {
     Optional<Memo> findMemo(Long id);
     Optional<Memo> writeMemo(String content);
     Optional<Memo> deleteMemo(Long id);
+    Optional<Memo> updateMemo(Long id, String status);
 }

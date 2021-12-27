@@ -36,8 +36,6 @@ public class MemoServiceTest {
         Assertions.assertThat(result.getContent()).isEqualTo("hehe");
     }
 
-
-
     @Test
     void deleteMemo() {
         memoService.writeMemo("hehe");
@@ -45,5 +43,15 @@ public class MemoServiceTest {
         Memo result = memoService.deleteMemo(1L).get();
 
         Assertions.assertThat(result.getContent()).isEqualTo("hehe");
+    }
+
+    @Test
+    void updateMemo() {
+        memoService.writeMemo("hehe");
+
+        Memo result = memoService.updateMemo(1L, Memo.PROGRESS).get();
+
+        Assertions.assertThat(result.getContent()).isEqualTo("hehe");
+        Assertions.assertThat(result.getStatus()).isEqualTo("PROGRESS");
     }
 }
