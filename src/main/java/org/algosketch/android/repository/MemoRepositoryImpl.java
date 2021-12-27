@@ -36,4 +36,8 @@ public class MemoRepositoryImpl implements MemoRepository {
 
         return deletedMemo;
     }
+
+    public void clearAll() {
+        store.clear();
+    }
 }
