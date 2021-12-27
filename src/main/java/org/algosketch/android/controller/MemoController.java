@@ -1,5 +1,6 @@
 package org.algosketch.android.controller;
 
+import io.swagger.annotations.Api;
 import org.algosketch.android.model.Memo;
 import org.algosketch.android.service.MemoService;
 import org.algosketch.android.service.MemoServiceImpl;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@Controller
+@RestController
 public class MemoController {
     @Autowired
     MemoService memoService;
