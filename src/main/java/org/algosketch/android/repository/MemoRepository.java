@@ -8,4 +8,5 @@ import java.util.Optional;
 public interface MemoRepository {
     List<Memo> getMemoAll();
     Optional<Memo> insertMemo(String content);
+    Optional<Memo> findById(Long id);
 }

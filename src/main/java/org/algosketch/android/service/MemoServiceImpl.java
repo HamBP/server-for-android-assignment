@@ -17,11 +17,18 @@ public class MemoServiceImpl implements MemoService {
         this.repository = repository;
     }
 
+    @Override
     public List<Memo> getMemos() {
         return repository.getMemoAll();
     }
 
+    @Override
     public Optional<Memo> writeMemo(String content) {
         return repository.insertMemo(content);
+    }
+
+    @Override
+    public Optional<Memo> findMemo(Long id) {
+        return repository.findById(id);
     }
 }

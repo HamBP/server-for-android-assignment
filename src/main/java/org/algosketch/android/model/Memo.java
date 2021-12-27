@@ -2,7 +2,8 @@ package org.algosketch.android.model;
 
 public class Memo {
     String content;
-    int status = 0;
+    int status;
+    Long id;
 
     public Memo(String content, int status) {
         this.content = content;
@@ -23,5 +24,13 @@ public class Memo {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

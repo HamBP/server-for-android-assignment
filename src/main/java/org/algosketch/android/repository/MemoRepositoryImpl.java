@@ -7,17 +7,25 @@ import java.util.*;
 
 @Repository
 public class MemoRepositoryImpl implements MemoRepository {
-    Map store = new HashMap<Long, Memo>();
+    Map<Long, Memo> store = new HashMap<Long, Memo>();
     Long sequence = 0L;
 
+    @Override
     public List<Memo> getMemoAll() {
         return new ArrayList<Memo>(store.values());
     }
 
+    @Override
     public Optional<Memo> insertMemo(String content) {
         Memo memo = new Memo(content, 0);
-        store.put(++sequence, memo);
+        memo.setId(++sequence);
+        store.put(memo.getId(), memo);
 
         return Optional.of(memo);
+    }
+
+    @Override
+    public Optional<Memo> findById(Long id) {
+        return Optional.of(store.get(id));
     }
 }

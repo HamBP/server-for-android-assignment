@@ -22,6 +22,14 @@ public class MemoController {
         return memoService.getMemos();
     }
 
+    @GetMapping("memo/{id}")
+    @ResponseBody
+    public ResponseEntity<Memo> findMemo(@PathVariable Long id) {
+        Optional<Memo> result = memoService.findMemo(id);
+        return result.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.badRequest().build());
+    }
+
     @PostMapping("memo")
     @ResponseBody
     public ResponseEntity<Memo> writeMemo(@RequestParam String content) {
